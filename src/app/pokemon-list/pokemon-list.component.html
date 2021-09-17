@@ -1,0 +1,35 @@
+<!-- <div>
+  <button class="btn btn-primary" (click)="onFetch()">Pobierz liste</button>
+
+</div> -->
+
+<div>
+  <button class="btn btn-primary" (click)="onFetchtest()">Pobierz liste</button>
+  <div class="btn btn-danger" (click)="checkSet()"> Sprawdz Set</div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
+    <ul class="list-group">
+      <!-- <li [ngStyle]="{'border-left-color':setColorByType(item.types[0].type.name)}" -->
+      <li [style.--borderColor]="item.types | pokemonTypeToColor"
+        class="list-group-item border-left-width pokemon-list-group-item" *ngFor="let item of items$ | async">
+        <div class="typeColor"></div>
+        <h3 class="capitalize">
+          <a [routerLink]="['/pokemonDetail', item.name]">{{ item.name }} </a>
+        </h3>
+        <img [src]="item.sprites.front_default">
+        <img [src]="item.sprites.back_default">
+        <div>
+          <mat-icon style="cursor: pointer; " [style.color]="favoritesPokemons.has(item.id) ? 'darkyellow' : 'gray'" (click)="onFavClick(item.id)" aria-hidden="false"
+            aria-label="Example home icon"
+            >
+            {{favoritesPokemons.has(item.id) ? 'favorite' : 'favorite_border'}}</mat-icon>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<mat-paginator [length]="(pagination$ | async).totalCount" [pageSize]="(pagination$ | async).limit"
+  [pageSizeOptions]="[10, 25, 50, 100]" aria-label="Select page" (page)="onPageChange($event)">
+</mat-paginator>

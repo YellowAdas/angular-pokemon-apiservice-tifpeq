@@ -1,0 +1,13 @@
+<p>
+  <button class="btn btn-primary" (click)="goBackToList()"><</button>
+</p>
+<div *ngIf="pokemonDetails">
+  <p><img [src]=pokemonDetails.sprites.front_default [alt]="pokemonDetails.sprites.front_default"></p>
+  <h4 class="capitalize" >Pokemon {{ pokemonDetails.name }}</h4>
+  <p>Height {{ pokemonDetails.height }}</p>
+  <p>Abilities: </p>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let detailsAbility of pokemonDetails.abilities">{{ detailsAbility.ability.name
+      }}</li>
+  </ul>
+</div>

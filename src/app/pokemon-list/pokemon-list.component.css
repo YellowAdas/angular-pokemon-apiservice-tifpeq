@@ -1,0 +1,15 @@
+.border-left-width {
+  border-left-width: 0;
+}
+
+.pokemon-list-group-item {
+  position: relative;
+}
+.pokemon-list-group-item .typeColor {
+  position: absolute;
+  width: 8px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--borderColor);
+}

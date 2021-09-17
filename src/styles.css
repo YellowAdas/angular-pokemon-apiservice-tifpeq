@@ -1,0 +1,14 @@
+/* Add application styles & imports to this file! */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+  margin: 0;
+  padding: 30px;
+}
+
+
+.capitalize {
+  text-transform: capitalize;
+}
